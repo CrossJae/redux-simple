@@ -1,6 +1,8 @@
 import './Main.less';
 import React from 'react';
 import { adaptSize } from '../util/adaptSize.js';
+
+// step5. 引入connect
 import { connect } from 'react-redux'
 
 const addAndSub = value => {
@@ -24,6 +26,7 @@ class Main extends React.Component {
   }
   sub() {
     console.log('----')
+    // step8. 分发action
     this.props.dispatch(addAndSub('sub'))
   }
   render(){
@@ -39,8 +42,10 @@ class Main extends React.Component {
   }
 }
 
+// step7. 创建mapStateToProps，返回状态
 function mapStateToProps(state){
   return state
 }
 
+// step6. 包装组件
 export default connect(mapStateToProps)(Main)
